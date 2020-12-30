@@ -17,9 +17,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +32,15 @@ public class MainPageController {
 
 	@Value("${my.oauth.server.schema}://${my.oauth.server.host}:${my.oauth.server.port}/security/invalidateToken")
     String logoutUrl;
+	
+//	@Autowired
+//	private UserService userService;
+//	
+//
+//	@PostMapping("/register-new-user")
+//	public void registerNewUser(@RequestBody User user) {
+//		userService.saveNewLoginUser(user);
+//	}
 
     @GetMapping("/main")
     public String main(Principal principal) {
